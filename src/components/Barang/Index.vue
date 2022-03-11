@@ -50,11 +50,11 @@
                                   <i class="mdi mdi-eye"></i>
                                 </router-link>
                               </button>
-                              <!-- <button type="button" class="btn btn-inverse-warning btn-rounded btn-icon">
+                              <button type="button" class="btn btn-inverse-warning btn-rounded btn-icon">
                                 <router-link :to="{name :'editbarang',  params : {id : b.id_barang}}" class="btn-inverse-warning">
                                   <i class="mdi mdi-lead-pencil"></i>
                                 </router-link>
-                              </button> -->
+                              </button>
                               <button type="button" @click="hapus(b.id_barang)" class="btn btn-inverse-danger btn-rounded btn-icon">
                                 <i class="mdi mdi-delete"></i>
                               </button>

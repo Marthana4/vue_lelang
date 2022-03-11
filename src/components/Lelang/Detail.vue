@@ -65,9 +65,8 @@
                     <td> {{h.no_hp}} </td>
                     <td> {{h.penawaran_harga}} </td>
                     <td>
-                      <form @submit.prevent="pilih">
                         <div v-if="lelang.status == 'dibuka'">
-                          <button type="submit" class="btn btn-inverse-primary">
+                          <button type="button" @click="pilih(h.id_history)" class="btn btn-inverse-primary">
                             pilih
                           </button>
                         </div>
@@ -75,7 +74,6 @@
                         <span v-if="h.status_pemenang == 'menang'" class="badge bg-success text-light">menang</span>
                         <span v-else class="badge bg-danger text-light">kalah</span>
                       </div>
-                      </form>
                     </td>
                   </tr>
                 </tbody>
@@ -96,7 +94,8 @@
         data() {
             return {
                 lelang :{},
-                history : {}
+                history : {},
+                src : ''
             }
         },
         created(){
@@ -105,7 +104,9 @@
                 headers : { Authorization : 'Bearer' + this.$store.state.token}
             })
             .then(res=>{
-                this.lelang = res.data
+              this.lelang = res.data
+              this.src="http://localhost/latihan_lelang/public/foto/" + this.lelang.foto
+              console.log(this.src)
             }),
             this.axios.get(`http://localhost/latihan_lelang/public/api/history/${this.$route.params.id}`,
             {
@@ -118,13 +119,13 @@
         
         },
         methods : {
-            pilih() {
-                this.axios.put(`http://localhost/latihan_lelang/public/api/history/pemenang/${this.$route.params.id_history}`, this.lelang,{
+            pilih(id_history) {
+                this.axios.put(`http://localhost/latihan_lelang/public/api/history/pemenang/${id_history}`, this.lelang,{
                 headers : { Authorization : 'Bearer' + this.$store.state.token}
             })
-            //     .then(()=>{
-            //     this.$router.push('/lelang')
-            // })
+                .then(()=>{
+                this.$router.push('/lelang')
+            })
                 .catch(err => console.log(err))
             }
         }

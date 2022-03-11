@@ -21,6 +21,9 @@ import DetailLelang from '../components/Lelang/Detail.vue'
 
 import IndexHistory from '../components/History/Index.vue'
 
+import ReportLelang from '../components/Report/Lelang.vue'
+import ReportHistory from '../components/Report/History.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -136,6 +139,22 @@ const routes = [
         path: '/history',
         name: 'indexhistory',
         component: IndexHistory,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/reportlelang',
+        name: 'reportlelang',
+        component: ReportLelang,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/reporthistory',
+        name: 'reporthistory',
+        component: ReportHistory,
         meta: {
             requiresAuth: true
         }

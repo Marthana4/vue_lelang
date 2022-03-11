@@ -3,19 +3,13 @@
    <div class="container-fluid page-body-wrapper">
         <!-- partial:../../../partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item nav-profile">
+          <ul class="nav space">
+            <li class="nav-item nav-profile ">
               <a href="#" class="nav-link">
-                <div class="nav-profile-image">
-                  <img src="../../../public/images/faces/face1.jpg" alt="profile">
-                  <span class="login-status online"></span>
-                  <!--change to offline or busy as needed-->
-                </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">David Grey. H</span>
-                  <span class="text-secondary text-small">Project Manager</span>
+                  <span class="font-weight-bold mb-2"></span>
+                  <span class="text-secondary text-small"></span>
                 </div>
-                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
             <li class="nav-item">
@@ -49,17 +43,36 @@
               </router-link>
             </li>
             <li v-if="isAdmin" class="nav-item">
-              <router-link class="nav-link" to="/report">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Report</span>
+                <i class="menu-arrow"></i>
                 <i class="mdi mdi-file-multiple menu-icon"></i>
-              </router-link>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> 
+                    <router-link class="nav-link" to="/reportlelang">
+                      <span class="menu-title">Report Lelang</span>
+                    </router-link>
+                  </li>
+                  <li class="nav-item"> 
+                    <router-link class="nav-link" to="/reporthistory">
+                      <span class="menu-title">Report Penawaran</span>
+                    </router-link>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </nav>
    </div>
 </div>
 </template>
-
+<style scoped>
+.space {
+  margin: 10px auto 0 auto;
+}
+</style>
 <script>
 export default {
   data(){
@@ -67,11 +80,14 @@ export default {
       isAdmin : false,
       isPetugas : false,
       isPengguna : false,
+      nama : " ",
     }
 
   },
   created(){
     var user = JSON.parse(this.$store.state.datauser)
+        // this.nama = user.nama;
+        // this.level = user.level;
         var level = user.level
 
         if(level == 'admin')this.isAdmin = true

@@ -73,7 +73,7 @@
         },
         methods : {
             edit() {
-                this.axios.put(`http://localhost/latihan_lelang/public/api/barang${this.$route.params.id}`, this.barang,{
+                this.axios.put(`http://localhost/latihan_lelang/public/api/barang/${this.$route.params.id}`, this.barang,{
                 headers : { Authorization : 'Bearer' + this.$store.state.token}
             })
                 .then(()=>{
