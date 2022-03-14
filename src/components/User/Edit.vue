@@ -18,16 +18,16 @@
               <h4 class="card-title">Edit Users</h4>
               <form @submit.prevent="edit" class="forms-sample">
                 <div class="form-group">
-                  <label for="exampleInputName1">Nama</label>
-                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Nama" v-model="user.nama">
+                  <label for="exampleInputName1">Name</label>
+                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" v-model="user.nama">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputAlamat1">Alamat</label>
-                  <input type="text" class="form-control" id="exampleInputAlamat1" placeholder="Alamat" v-model="user.alamat">
+                  <label for="exampleInputAlamat1">Address</label>
+                  <input type="text" class="form-control" id="exampleInputAlamat1" placeholder="Address" v-model="user.alamat">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputNoHp1">No Hp</label>
-                  <input type="text" class="form-control" id="exampleInputNoHp1" placeholder="No Hp" v-model="user.no_hp">
+                  <label for="exampleInputNoHp1">Phone Number</label>
+                  <input type="text" class="form-control" id="exampleInputNoHp1" placeholder="Phone Number" v-model="user.no_hp">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputUsername1">Username</label>
@@ -37,8 +37,8 @@
                   <label for="exampleSelectLevel">Level</label>
                   <select class="form-control" id="exampleSelectLevel" v-model="user.level">
                     <!-- <option value="{{user.level}}">{{user.level}}</option> -->
-                    <option value="petugas">Petugas</option>
-                    <option value="pengguna">Pengguna</option>
+                    <option value="petugas">Operator</option>
+                    <option value="pengguna">User</option>
                   </select>
                 </div>
                 <br> 

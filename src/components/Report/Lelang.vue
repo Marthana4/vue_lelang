@@ -60,7 +60,7 @@
                               ref="html2Pdf"
                             >
                               <section slot="pdf-content">
-                                <h1 class="text-center">Report Transaksi</h1>
+                                <h1 class="text-center">Transaction Report</h1>
                                 <h3 class="text-center">Lelang</h3>
                                 <h5 class="text-center">
                                   Platform User Lelang
@@ -70,11 +70,11 @@
                                   <thead>
                                     <tr>
                                       <th class="font-weight-bold">No</th>
-                                      <th class="font-weight-bold">Nama Barang</th>
-                                      <th class="font-weight-bold">Harga Awal</th>
-                                      <th class="font-weight-bold">Harga Akhir</th>
-                                      <th class="font-weight-bold">Pemenang</th>
-                                      <th class="font-weight-bold">Tanggal Lelang</th>
+                                      <th class="font-weight-bold">Item Name</th>
+                                      <th class="font-weight-bold">Started Price</th>
+                                      <th class="font-weight-bold">Final Price</th>
+                                      <th class="font-weight-bold">User Name</th>
+                                      <th class="font-weight-bold">Date</th>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -96,7 +96,7 @@
                               </section>
                             </VueHtml2pdf>
                             <button type="button" @click="generateReport">
-                              Buat Report
+                              Export as PDF
                             </button>
                           </div>
                         </div>

@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Login from '../components/Login.vue'
+import Register from '../components/Register.vue'
 import Dashboard from '../components/Dashboard.vue'
+import Dashboard2 from '../components/Dashboard2.vue'
 
 import IndexUser from '../components/User/Index.vue'
 import TambahUser from '../components/User/Tambah.vue'
@@ -33,9 +35,22 @@ const routes = [
         component: Login
     },
     {
+        path: '/register',
+        name: 'register',
+        component: Register
+    },
+    {
         path: '/',
         name: 'dashboard',
         component: Dashboard,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/home',
+        name: 'dashboard2',
+        component: Dashboard2,
         meta: {
             requiresAuth: true
         }

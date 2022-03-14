@@ -6,7 +6,7 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-                  <h1 class="font-weight">Lelang Online</h1>
+                  <img src="../../public/images/logo.svg">
                 </div>
                 <h4>Hello! let's get started</h4>
                 <h6 class="font-weight-light">Sign in to continue.</h6>
@@ -20,8 +20,11 @@
                   <div class="mt-3">
                     <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" type="submit">SIGN IN</button>
                   </div>
-                  <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="register.html" class="text-primary">Create</a>
-                  </div>
+                    <div class="text-center mt-4 font-weight-light col"> Don't have an account?
+                      <router-link class="nav-link col" to="/register">
+                      Create
+                      </router-link>
+                    </div>
                 </form>
               </div>
             </div>
@@ -46,7 +49,12 @@
                     if(res.data.success){
                         this.$store.commit('setToken', res.data.token)
                         this.$store.commit('setUser', JSON.stringify(res.data.user))
-                        this.$router.push('/')
+                        let loginType = res.data.user.level
+                        if (loginType === 'pengguna'){
+                          this.$router.push('/home')
+                        }else{
+                          this.$router.push('/')
+                        }
                     }
                 })
                 .catch(err => console.log(err))

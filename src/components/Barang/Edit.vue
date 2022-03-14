@@ -15,18 +15,18 @@
         <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Edit barang</h4>
+                    <h4 class="card-title">Edit Items data</h4>
                     <form @submit.prevent="edit" class="forms-sample">
                       <div class="form-group">
-                        <label for="exampleInputNamaBarang1">Nama Barang</label>
-                        <input type="text" class="form-control" id="exampleInputNamaBarang1" placeholder="Nama Barang" v-model="barang.nama_barang">
+                        <label for="exampleInputNamaBarang1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputNamaBarang1"  v-model="barang.nama_barang">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputHarga1">Harga</label>
-                        <input type="text" class="form-control" id="exampleInputHarga1" placeholder="Harga" v-model="barang.harga_awal">
+                        <label for="exampleInputHarga1">Price</label>
+                        <input type="text" class="form-control" id="exampleInputHarga1" v-model="barang.harga_awal">
                       </div>
                       <div class="form-group">
-                        <label for="foto">Foto</label>
+                        <label for="foto">Photo</label>
                         <div class="col-md-3" v-if="foto">
                               <img :src="foto" class="img-responsive" height="70" width="90">
                            </div>
@@ -37,7 +37,7 @@
                         <!-- <input type="file" class="form-control" @change="avachange"> -->
                       </div>
                       <div class="form-group">
-                        <label for="exampleDeskripsi1">Deskripsi</label>
+                        <label for="exampleDeskripsi1">Description</label>
                         <textarea class="form-control" id="exampleDeskripsi1" rows="4" v-model="barang.deskripsi"></textarea>
                       </div>
                       <br> 

@@ -15,10 +15,10 @@
         <div class="col-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Edit Data Lelang</h4>
+              <h4 class="card-title">Edit Auction Data</h4>
               <form @submit.prevent="edit" class="forms-sample">
                 <div class="form-group">
-                  <label for="exampleInputBarang" class="col-sm-3 col-form-label">Barang</label>
+                  <label for="exampleInputBarang" class="col-sm-3 col-form-label">Item</label>
                   <div class="col-sm-12">
                     <select v-model="lelang.id_barang">
                       <option
@@ -32,15 +32,15 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputTanggal">Tanggal Lelang</label>
+                  <label for="exampleInputTanggal">Date</label>
                   <input type="date" class="form-control col-sm-9" id="exampleInputTanggal" v-model="lelang.tgl_lelang">
                 </div>
                 <div class="form-group">  
                   <label class="col-sm-3 col-form-label">Status</label>
                   <div class="col-sm">
                     <select class="form-control" v-model="lelang.status">
-                      <option value="dibuka">Dibuka</option>
-                      <option value="ditutup">Ditutup</option>
+                      <option value="dibuka">Open</option>
+                      <option value="ditutup">Close</option>
                     </select>
                   </div>
                 </div>

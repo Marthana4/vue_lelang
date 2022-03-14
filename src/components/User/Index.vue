@@ -15,24 +15,24 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Data Users</h4>
-                    <p class="card-description">Data user dan petugas</p>
+                    <h4 class="card-title">Users Data</h4>
+                    <p class="card-description">Users and Operators Data</p>
                     <div class="table-responsive">
                       <router-link to="user/tambah" class="btn btn-outline-primary btn-fw text-right" style="float: right">
                         <span class="icon">
                           <i class="mdi mdi-account-plus"> </i>
                         </span>
-                        <span class="text"> Add New User</span>
+                        <span class="text"> Add New </span>
                       </router-link>
                       <table class="table table-striped">
                         <thead>
                           <tr>
                             <th> <i class="mdi mdi-emoticon-happy"></i> </th>
-                            <th> Nama </th>
-                            <th> Alamat </th>
+                            <th> Name </th>
+                            <th> Address </th>
                             <th> Username </th>
                             <th> Level </th>
-                            <th> Aksi </th>
+                            <th> Action </th>
                           </tr>
                         </thead>
                         <tbody>

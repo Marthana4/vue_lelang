@@ -15,23 +15,17 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Riwayat</h4>
-                    <p class="card-description">Data Penawaran</p>
+                    <h4 class="card-title">History</h4>
+                    <p class="card-description">Offer Data</p>
                     <div class="table-responsive">
-                      <!-- <router-link to="lelang/tambah" class="btn btn-outline-primary btn-fw text-right" style="float: right">
-                        <span class="icon">
-                          <i class="mdi mdi-account-plus"> </i>
-                        </span>
-                        <span class="text"> Add New Lelang</span>
-                      </router-link> -->
                       <table class="table table-striped">
                         <thead>
                           <tr>
                             <th> <i class="mdi mdi-emoticon-happy"></i> </th>
                             <th> ID Lelang</th>
-                            <th> Nama Barang</th>
-                            <th> Nama Pengguna </th>
-                            <th> Penawaran Harga </th>
+                            <th> Item Name</th>
+                            <th> User Name </th>
+                            <th> Bid </th>
                             <th> Status</th>
                           </tr>
                         </thead>
@@ -45,9 +39,9 @@
                             <td> {{h.nama}} </td>
                             <td> {{h.penawaran_harga}} </td>
                             <td>
-                                <span v-if="h.status_pemenang == 'proses'" class="badge bg-primary text-light">proses</span>
-                                <span v-if="h.status_pemenang == 'kalah'" class="badge bg-dark text-light">kalah</span>
-                                <span v-if="h.status_pemenang == 'menang'" class="badge bg-success text-light">menang</span>
+                                <span v-if="h.status_pemenang == 'proses'" class="badge bg-primary text-light">process</span>
+                                <span v-if="h.status_pemenang == 'kalah'" class="badge bg-dark text-light">lose</span>
+                                <span v-if="h.status_pemenang == 'menang'" class="badge bg-success text-light">win</span>
                             </td>
                           </tr>
                         </tbody>

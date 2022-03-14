@@ -14,18 +14,18 @@
                     <div class="card">
                       <div class="card-body">
                         <div class="card-header py-3">
-                          <h4 class="card-title">Cetak Report</h4>
+                          <h4 class="card-title">Generate Report</h4>
                         </div>
                         <div class="card-body">
                           <form class="form-group" @submit.prevent="tampil">
-                            <label>Status Penawaran</label>
+                            <label>Status</label>
                             <select class="form-control" v-model="report.status_pemenang">
-                              <option value="menang">menang</option>
-                              <option value="kalah">kalah</option>
-                              <option value="proses">proses</option>
+                              <option value="menang">win</option>
+                              <option value="kalah">lose</option>
+                              <option value="proses">process</option>
                             </select>
                             <button type="submit" class="btn btn-sm btn-info">
-                              Tampilkan
+                              Show
                             </button>
                           </form>
                           <div class="report">
@@ -44,7 +44,7 @@
                               ref="html2Pdf"
                             >
                               <section slot="pdf-content">
-                                <h1 class="text-center">Report Transaksi</h1>
+                                <h1 class="text-center">Transaction Report</h1>
                                 <h3 class="text-center">History</h3>
                                 <h5 class="text-center">
                                   Platform User Lelang
@@ -54,11 +54,11 @@
                                   <thead>
                                     <tr>
                                       <th class="font-weight-bold">No</th>
-                                      <th class="font-weight-bold">Nama Barang</th>
-                                      <th class="font-weight-bold">Pemenang</th>
-                                      <th class="font-weight-bold">No Telpon</th>
-                                      <th class="font-weight-bold">Harga Penawaran</th>
-                                      <th class="font-weight-bold">Tanggal Lelang</th>
+                                      <th class="font-weight-bold">Item Name</th>
+                                      <th class="font-weight-bold">User Name</th>
+                                      <th class="font-weight-bold">Phone Number</th>
+                                      <th class="font-weight-bold">Bid</th>
+                                      <th class="font-weight-bold">Date</th>
                                       <th class="font-weight-bold">Status</th>
                                     </tr>
                                   </thead>
@@ -82,7 +82,7 @@
                               </section>
                             </VueHtml2pdf>
                             <button type="button" @click="generateReport">
-                              Buat Report
+                              Export as PDF
                             </button>
                           </div>
                         </div>

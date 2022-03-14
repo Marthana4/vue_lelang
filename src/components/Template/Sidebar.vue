@@ -26,23 +26,29 @@
             </li>
             <li v-if="isPetugas || isAdmin" class="nav-item">
               <router-link class="nav-link" to="/barang">
-                <span class="menu-title">Barang</span>
+                <span class="menu-title">Items</span>
                 <i class="mdi mdi-hexagon menu-icon"></i>
               </router-link>
             </li>
-            <li  class="nav-item">
+            <li v-if="isPetugas" class="nav-item">
               <router-link class="nav-link" to="/lelang">
                 <span class="menu-title">Lelang</span>
                 <i class="mdi mdi-gavel menu-icon"></i>
               </router-link>
             </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/history">
-                <span class="menu-title">Riwayat</span>
+            <li v-if="isPengguna" class="nav-item">
+              <router-link class="nav-link" to="/penawaran">
+                <span class="menu-title">Penawaran</span>
                 <i class="mdi mdi-clipboard-text menu-icon"></i>
               </router-link>
             </li>
-            <li v-if="isAdmin" class="nav-item">
+            <li v-if="isPetugas" class="nav-item">
+              <router-link class="nav-link" to="/history">
+                <span class="menu-title">History</span>
+                <i class="mdi mdi-clipboard-text menu-icon"></i>
+              </router-link>
+            </li>
+            <li v-if="isAdmin || isPetugas" class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Report</span>
                 <i class="menu-arrow"></i>
@@ -86,8 +92,6 @@ export default {
   },
   created(){
     var user = JSON.parse(this.$store.state.datauser)
-        // this.nama = user.nama;
-        // this.level = user.level;
         var level = user.level
 
         if(level == 'admin')this.isAdmin = true

@@ -15,7 +15,7 @@
         <div class="col-12 grid-margin stretch-card">
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h4 class="card-title">Data Penawaran Lelang</h4>
+                <h4 class="card-title">Auction Bid Data</h4>
             </div>
             <div class="card-body">
               <div class="row align-items-center">
@@ -23,18 +23,18 @@
                       <img :src="'http://localhost/latihan_lelang/public/foto/'+lelang.foto" style="height:300px;" alt="image">
                   </div>
                   <div class="col">
-                      <div class="text-xs font-weight-bold text-uppercase">Nama Barang</div>
+                      <div class="text-xs font-weight-bold text-uppercase">Item Name</div>
                       <div class="h6 mb-0 text-gray-800 mb-2">{{ lelang.nama_barang }}</div>
-                      <div class="text-xs font-weight-bold text-uppercase">Tanggal Lelang</div>
+                      <div class="text-xs font-weight-bold text-uppercase">Date</div>
                       <div class="h6 mb-0 text-gray-800 mb-2">{{ lelang.tgl_lelang }}</div>
                       <div class="text-xs font-weight-bold text-uppercase">Status</div>
                       <div class="h6 mb-0 text-gray-800 mb-2">{{ lelang.status }}</div>
-                      <div class="text-xs font-weight-bold text-uppercase">Harga Awal</div>
+                      <div class="text-xs font-weight-bold text-uppercase">Starting Price</div>
                       <div class="h6 mb-0 text-gray-800 mb-2">{{ lelang.harga_awal }}</div>
-                      <div class="text-xs font-weight-bold text-uppercase">Harga Akhir</div>
+                      <div class="text-xs font-weight-bold text-uppercase">Final Price</div>
                       <div class="h6 mb-0 text-gray-800 mb-2" v-if="lelang.harga_akhir===null">-</div>
                       <div class="h6 mb-0 text-gray-800 mb-2" v-else>{{ lelang.harga_akhir }}</div>
-                      <div class="text-xs font-weight-bold text-uppercase">Nama Pemenang</div>
+                      <div class="text-xs font-weight-bold text-uppercase">User Name</div>
                       <div class="h6 mb-0 text-gray-800 mb-2" v-if="lelang.nama===null">-</div>
                       <div class="h6 mb-0 text-gray-800 mb-2" v-else>{{ lelang.nama }}</div>
                   </div>
@@ -45,15 +45,15 @@
         <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Data Penawaran</h4>
+              <h4 class="card-title">Offer Data</h4>
               <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th> # </th>
-                    <th> Nama </th>
-                    <th> Alamat </th>
-                    <th> No Hp </th>
-                    <th> Harga Penawaran </th>
+                    <th> Name </th>
+                    <th> Address </th>
+                    <th> Phone Number </th>
+                    <th> Bid </th>
                     <th> Status </th>
                   </tr>
                 </thead>
@@ -67,12 +67,12 @@
                     <td>
                         <div v-if="lelang.status == 'dibuka'">
                           <button type="button" @click="pilih(h.id_history)" class="btn btn-inverse-primary">
-                            pilih
+                            choose as winner
                           </button>
                         </div>
                       <div v-else>
-                        <span v-if="h.status_pemenang == 'menang'" class="badge bg-success text-light">menang</span>
-                        <span v-else class="badge bg-danger text-light">kalah</span>
+                        <span v-if="h.status_pemenang == 'menang'" class="badge bg-success text-light">win</span>
+                        <span v-else class="badge bg-danger text-light">lose</span>
                       </div>
                     </td>
                   </tr>

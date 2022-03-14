@@ -15,10 +15,10 @@
         <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Tambah Data Lelang</h4>
+                    <h4 class="card-title">Add Auction Data</h4>
                     <form @submit.prevent="tambah" class="forms-sample">
                       <div class="form-group row">
-                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Barang</label>
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Item</label>
                         <div class="col-sm-9">
                           <select v-model="lelang.id_barang">
                             <option

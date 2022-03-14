@@ -15,27 +15,27 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Data Lelang</h4>
-                    <p class="card-description">Data Lelang Barang</p>
+                    <h4 class="card-title">Lelang</h4>
+                    <p class="card-description">Item Auction Data</p>
                     <div class="table-responsive">
                       <router-link to="lelang/tambah" class="btn btn-outline-primary btn-fw text-right" style="float: right">
                         <span class="icon">
-                          <i class="mdi mdi-account-plus"> </i>
+                          <i class="mdi mdi-plus-circle-outline"> </i>
                         </span>
-                        <span class="text"> Add New Lelang</span>
+                        <span class="text"> Add New </span>
                       </router-link>
                       <table class="table table-striped">
                         <thead>
                           <tr>
                             <th> <i class="mdi mdi-emoticon-happy"></i> </th>
-                            <th> Nama Petugas</th>
+                            <th> Operator Name</th>
                             <!-- <th> Foto</th> -->
-                            <th> Nama Barang</th>
-                            <th> Tanggal Lelang </th>
-                            <th> Harga Akhir </th>
-                            <th> ID Pemenang </th>
+                            <th> Item Name</th>
+                            <th> Date </th>
+                            <th> Final Price </th>
+                            <th> Winner ID </th>
                             <th> Status</th>
-                            <th> Aksi </th>
+                            <th> Action </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -50,8 +50,8 @@
                             <td> {{l.harga_akhir}} </td>
                             <td> {{l.id_pengguna}}</td>
                             <td>
-                                <span v-if="l.status == 'dibuka'" class="badge bg-info text-light">dibuka</span>
-                                <span v-if="l.status == 'ditutup'" class="badge bg-dark text-light">ditutup</span>
+                                <span v-if="l.status == 'dibuka'" class="badge bg-info text-light">Open</span>
+                                <span v-if="l.status == 'ditutup'" class="badge bg-dark text-light">Close</span>
                             </td>
                             <td>
                               <button type="button" class="btn btn-inverse-success btn-rounded btn-icon">

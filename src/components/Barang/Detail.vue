@@ -15,21 +15,21 @@
         <div class="col-12 grid-margin stretch-card">
                 <div class="card shadow mb-4">
                   <div class="card-header py-3">
-                      <h4 class="card-title">Data Barang</h4>
+                      <h4 class="card-title">Items Data</h4>
                   </div>
                   <div class="card-body">
-                    <div class="row align-items-center" v-for="barang in barang" :key="barang.id_barang">
+                    <div class="row align-items-center">
                         <div class="col text-center">
                             <img :src="'http://localhost/latihan_lelang/public/foto/'+barang.foto" style="height:300px;" alt="image">
                         </div>
                         <div class="col">
-                            <div class="text-xs font-weight-bold text-uppercase">Nama</div>
+                            <div class="text-xs font-weight-bold text-uppercase">Name</div>
                             <div class="h6 mb-0 text-gray-800 mb-2">{{ barang.nama_barang }}</div>
-                            <div class="text-xs font-weight-bold text-uppercase">Tanggal Daftar</div>
+                            <div class="text-xs font-weight-bold text-uppercase">Register Date</div>
                             <div class="h6 mb-0 text-gray-800 mb-2">{{ barang.tanggal_daftar }}</div>
-                            <div class="text-xs font-weight-bold text-uppercase">Harga</div>
+                            <div class="text-xs font-weight-bold text-uppercase">Price</div>
                             <div class="h6 mb-0 text-gray-800 mb-2">{{ barang.harga_awal }}</div>
-                            <div class="text-xs font-weight-bold text-uppercase">Deskripsi</div>
+                            <div class="text-xs font-weight-bold text-uppercase">Description</div>
                             <div class="h6 mb-0 text-gray-800 mb-2">{{ barang.deskripsi }}</div>
                         </div>
                     </div>

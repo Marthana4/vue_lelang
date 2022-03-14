@@ -15,24 +15,24 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Data Barang</h4>
-                    <p class="card-description">Data Barang Lelang</p>
+                    <h4 class="card-title">Items Data</h4>
+                    <p class="card-description">Lelang</p>
                     <div class="table-responsive">
                       <router-link to="barang/tambah" class="btn btn-outline-primary btn-fw text-right" style="float: right">
                         <span class="icon">
-                          <i class="mdi mdi-account-plus"> </i>
+                          <i class="mdi mdi-plus-circle-outline"> </i>
                         </span>
-                        <span class="text"> Add New Barang</span>
+                        <span class="text"> Add New Item</span>
                       </router-link>
                       <table class="table table-striped">
                         <thead>
                           <tr>
                             <th> <i class="mdi mdi-emoticon-happy"></i> </th>
-                            <th> Foto </th>
-                            <th> Nama Barang</th>
-                            <th> Tanggal Daftar </th>
-                            <th> Harga Awal </th>
-                            <th> Aksi </th>
+                            <th> Photo </th>
+                            <th> Name</th>
+                            <th> Register Date </th>
+                            <th> Price </th>
+                            <th> Action </th>
                           </tr>
                         </thead>
                         <tbody>
