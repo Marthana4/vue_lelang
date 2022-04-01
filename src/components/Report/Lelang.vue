@@ -161,12 +161,13 @@ export default {
     this.report.tahun = date.getFullYear();
     this.report.bulan = ("0" + (date.getMonth() + 1)).slice(-2);
 
-    // var data = JSON.parse(this.$store.state.datauser);
-    // var role = data.role;
-    // if (role == "admin" || role == "kasir") {
-    //   this.$swal("Anda Tidak Dapat Mengakses Halaman Ini");
-    //   this.$router.push("/");
-    // }
+          var data = JSON.parse(this.$store.state.datauser)
+          var level = data.level
+          if(level == 'pengguna' )
+          {
+              this.$swal("This page cannot be access")
+              this.$router.push('/home') 
+          }
   },
   methods: {
     tampil() {

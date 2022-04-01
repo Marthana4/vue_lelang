@@ -52,6 +52,13 @@
             }
         },
         created(){
+          var data = JSON.parse(this.$store.state.datauser)
+          var level = data.level
+          if(level == 'pengguna')
+          {
+              this.$swal("This page cannot be access")
+              this.$router.push('/home') 
+          }
             this.axios.get(`http://localhost/latihan_lelang/public/api/barang/${this.$route.params.id}`,
             {
                 headers : { Authorization : 'Bearer' + this.$store.state.token}

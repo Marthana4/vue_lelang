@@ -15,16 +15,14 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">History</h4>
-                    <p class="card-description">Offer Data</p>
+                    <h4 class="card-title">Penawaran</h4>
+                    <p class="card-description">Data Penawaran Anda</p>
                     <div class="table-responsive">
                       <table class="table table-striped">
                         <thead>
                           <tr>
                             <th> <i class="mdi mdi-emoticon-happy"></i> </th>
-                            <th> ID Lelang</th>
                             <th> Item Name</th>
-                            <th> User Name </th>
                             <th> Bid </th>
                             <th> Status</th>
                           </tr>
@@ -34,9 +32,7 @@
                             <td class="py-1">
                               {{index+1}}
                             </td>
-                            <td> {{h.id_history}}</td>
                             <td> {{h.nama_barang}} </td>
-                            <td> {{h.nama}} </td>
                             <td> {{h.penawaran_harga}} </td>
                             <td>
                                 <span v-if="h.status_pemenang == 'proses'" class="badge bg-primary text-light">process</span>
@@ -68,12 +64,12 @@
         created(){
           var data = JSON.parse(this.$store.state.datauser)
           var level = data.level
-          if(level == 'pengguna'|| level == 'admin' )
+          if(level == 'petugas' || level == 'admin' )
           {
               this.$swal("This page cannot be access")
               this.$router.push('/') 
           }
-            this.axios.get('http://localhost/latihan_lelang/public/api/history',
+            this.axios.get('http://localhost/latihan_lelang/public/api/showpenawaran',
             {
                 headers : { Authorization : 'Bearer' + this.$store.state.token}
             })

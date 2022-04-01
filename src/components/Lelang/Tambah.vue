@@ -54,6 +54,13 @@
             }
         },
         created(){
+          var data = JSON.parse(this.$store.state.datauser)
+          var level = data.level
+          if(level == 'pengguna'|| level == 'admin' )
+          {
+              this.$swal("This page cannot be access")
+              this.$router.push('/') 
+          }
             this.axios.get(`http://localhost/latihan_lelang/public/api/barang`,
             {
                 headers : { Authorization : 'Bearer' + this.$store.state.token}
@@ -67,8 +74,11 @@
                 this.axios.post('http://localhost/latihan_lelang/public/api/lelang', this.lelang,{
                 headers : { Authorization : 'Bearer' + this.$store.state.token}
             })
-                .then(()=>{
+                .then((res)=>{
+                  if(res.data.success) {
+                    this.$swal(res.data.message)
                 this.$router.push('/lelang')
+                  }
             })
                 .catch(err => console.log(err))
             }

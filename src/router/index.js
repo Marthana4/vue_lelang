@@ -26,6 +26,9 @@ import IndexHistory from '../components/History/Index.vue'
 import ReportLelang from '../components/Report/Lelang.vue'
 import ReportHistory from '../components/Report/History.vue'
 
+import IndexPenawaran from '../components/Penawaran/Index.vue'
+import TambahPenawaran from '../components/Penawaran/Tambah.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -134,7 +137,8 @@ const routes = [
         meta: {
             requiresAuth: true
         }
-    },{
+    },
+    {
         path: '/lelang/edit/:id',
         name: 'editlelang',
         component: EditLelang,
@@ -170,6 +174,22 @@ const routes = [
         path: '/reporthistory',
         name: 'reporthistory',
         component: ReportHistory,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/penawaran',
+        name: 'indexpenawaran',
+        component: IndexPenawaran,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/penawaran/tambah',
+        name: 'tambahpenawaran',
+        component: TambahPenawaran,
         meta: {
             requiresAuth: true
         }

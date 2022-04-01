@@ -62,13 +62,25 @@
                 // foto: ''
             }
         },
+        created(){
+          var data = JSON.parse(this.$store.state.datauser)
+          var level = data.level
+          if(level == 'pengguna')
+          {
+              this.$swal("This page cannot be access")
+              this.$router.push('/home') 
+          } 
+        }, 
         methods : {
             tambah() {
                 this.axios.post('http://localhost/latihan_lelang/public/api/barang', this.barang,{
                 headers : { Authorization : 'Bearer' + this.$store.state.token}
             })
-                .then(()=>{
-                this.$router.push('/barang')
+                .then((res)=>{
+                  if(res.data.success) {
+                    this.$swal(res.data.message)            
+                    this.$router.push('/barang')
+                  }
             })
                 .catch(err => console.log(err))
             },

@@ -88,6 +88,13 @@
             }
         },
         created(){
+          var data = JSON.parse(this.$store.state.datauser)
+          var level = data.level
+          if(level == 'pengguna' || level == 'petugas' )
+          {
+              this.$swal("This page cannot be access")
+              this.$router.push('/') 
+          }
             this.axios.get('http://localhost/latihan_lelang/public/api/getall',
             {
                 headers : { Authorization : 'Bearer' + this.$store.state.token}
@@ -102,9 +109,24 @@
             {
                 headers : { Authorization : 'Bearer' + this.$store.state.token}
             })
-            .then(() => {
+            this.$swal({
+            title: 'Are you sure?',
+            text: 'You can\'t revert your action',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes Delete it!',
+            cancelButtonText: 'No, Keep it!',
+            showCloseButton: true,
+            showLoaderOnConfirm: true
+            })
+            .then((res) => {
+              if(res.value){
                 let i = this.user.map((item) => item.id).indexOf(id);
                 this.user.splice(i, 1);
+                this.$swal('Deleted', 'You successfully deleted this file', 'success')
+              } else {
+                this.$swal('Cancelled', 'Your file is still intact', 'info')
+              }
             });
             }
         }

@@ -65,13 +65,25 @@
                 user : {}
             }
         },
+        created(){
+        var data = JSON.parse(this.$store.state.datauser)
+          var level = data.level
+          if(level == 'pengguna' || level == 'petugas' )
+          {
+              this.$swal("This page cannot be access")
+              this.$router.push('/') 
+          }
+          },
         methods : {
             tambah() {
                 this.axios.post('http://localhost/latihan_lelang/public/api/tambah', this.user,{
                 headers : { Authorization : 'Bearer' + this.$store.state.token}
             })
-                .then(()=>{
+                .then((res)=>{
+                  if(res.data.success) {
+                    this.$swal(res.data.message)
                 this.$router.push('/user')
+                  }
             })
                 .catch(err => console.log(err))
             }

@@ -12,8 +12,14 @@
                 </div>
               </a>
             </li>
-            <li class="nav-item">
+            <li v-if="isAdmin || isPetugas" class="nav-item">
               <router-link class="nav-link" to="/">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </router-link>
+            </li>
+            <li v-if="isPengguna" class="nav-item">
+              <router-link class="nav-link" to="/home">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </router-link>
@@ -74,6 +80,7 @@
    </div>
 </div>
 </template>
+
 <style scoped>
 .space {
   margin: 10px auto 0 auto;
