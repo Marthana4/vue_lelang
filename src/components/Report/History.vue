@@ -19,7 +19,10 @@
                         <div class="card-body">
                           <form class="form-group" @submit.prevent="tampil">
                             <label>Status</label>
-                            <select class="form-control" v-model="report.status_pemenang">
+                            <select
+                              class="form-control"
+                              v-model="report.status_pemenang"
+                            >
                               <option value="menang">win</option>
                               <option value="kalah">lose</option>
                               <option value="proses">process</option>
@@ -54,9 +57,15 @@
                                   <thead>
                                     <tr>
                                       <th class="font-weight-bold">No</th>
-                                      <th class="font-weight-bold">Item Name</th>
-                                      <th class="font-weight-bold">User Name</th>
-                                      <th class="font-weight-bold">Phone Number</th>
+                                      <th class="font-weight-bold">
+                                        Item Name
+                                      </th>
+                                      <th class="font-weight-bold">
+                                        User Name
+                                      </th>
+                                      <th class="font-weight-bold">
+                                        Phone Number
+                                      </th>
                                       <th class="font-weight-bold">Bid</th>
                                       <th class="font-weight-bold">Date</th>
                                       <th class="font-weight-bold">Status</th>
@@ -71,9 +80,11 @@
                                       <td>{{ h.nama_barang }}</td>
                                       <td>{{ h.nama }}</td>
                                       <td>{{ h.no_hp }}</td>
-                                      <td>{{ h.harga_akhir }}</td>
+                                      <td>{{ h.penawaran_harga }}</td>
                                       <td>
-                                        {{ h.tgl_lelang | moment("DD/MM/YYYY") }}
+                                        {{
+                                          h.tgl_lelang | moment("DD/MM/YYYY")
+                                        }}
                                       </td>
                                       <td>{{ h.status_pemenang }}</td>
                                     </tr>
@@ -143,13 +154,12 @@ export default {
     };
   },
   created() {
-          var data = JSON.parse(this.$store.state.datauser)
-          var level = data.level
-          if(level == 'pengguna' )
-          {
-              this.$swal("This page cannot be access")
-              this.$router.push('/home') 
-          }
+    var data = JSON.parse(this.$store.state.datauser);
+    var level = data.level;
+    if (level == "pengguna") {
+      this.$swal("This page cannot be access");
+      this.$router.push("/home");
+    }
   },
   methods: {
     tampil() {

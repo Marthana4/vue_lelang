@@ -211,7 +211,7 @@ export default {
           "http://localhost/latihan_lelang/public/foto/" + this.lelang.foto;
         console.log(this.src);
       }),
-    this.showPenawaranLelang();
+      this.showPenawaranLelang();
 
     this.axios
       .get(
@@ -256,10 +256,15 @@ export default {
             this.$swal(res.data.message);
             this.$router.push("/penawaran/tambah");
             this.showPenawaranLelang();
+          } else {
+            this.$swal({
+              title: "Failed",
+              text: "Your bid must be bigger",
+            });
           }
         })
         .catch((err) => console.log(err));
     },
   },
 };
-</script>   
+</script>

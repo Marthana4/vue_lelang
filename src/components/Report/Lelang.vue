@@ -70,10 +70,18 @@
                                   <thead>
                                     <tr>
                                       <th class="font-weight-bold">No</th>
-                                      <th class="font-weight-bold">Item Name</th>
-                                      <th class="font-weight-bold">Started Price</th>
-                                      <th class="font-weight-bold">Final Price</th>
-                                      <th class="font-weight-bold">User Name</th>
+                                      <th class="font-weight-bold">
+                                        Item Name
+                                      </th>
+                                      <th class="font-weight-bold">
+                                        Started Price
+                                      </th>
+                                      <th class="font-weight-bold">
+                                        Final Price
+                                      </th>
+                                      <th class="font-weight-bold">
+                                        User Name
+                                      </th>
                                       <th class="font-weight-bold">Date</th>
                                     </tr>
                                   </thead>
@@ -88,7 +96,9 @@
                                       <td>{{ l.harga_akhir }}</td>
                                       <td>{{ l.nama }}</td>
                                       <td>
-                                        {{ l.tgl_lelang | moment("DD/MM/YYYY") }}
+                                        {{
+                                          l.tgl_lelang | moment("DD/MM/YYYY")
+                                        }}
                                       </td>
                                     </tr>
                                   </tbody>
@@ -161,13 +171,12 @@ export default {
     this.report.tahun = date.getFullYear();
     this.report.bulan = ("0" + (date.getMonth() + 1)).slice(-2);
 
-          var data = JSON.parse(this.$store.state.datauser)
-          var level = data.level
-          if(level == 'pengguna' )
-          {
-              this.$swal("This page cannot be access")
-              this.$router.push('/home') 
-          }
+    var data = JSON.parse(this.$store.state.datauser);
+    var level = data.level;
+    if (level == "pengguna") {
+      this.$swal("This page cannot be access");
+      this.$router.push("/home");
+    }
   },
   methods: {
     tampil() {
