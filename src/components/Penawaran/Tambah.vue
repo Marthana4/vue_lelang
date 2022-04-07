@@ -128,7 +128,7 @@
             </div>
           </div>
           <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
+            <div class="card" v-if="lelang.status == 'dibuka'">
               <div class="card-body">
                 <h4 class="card-title">Penawaran</h4>
                 <p class="card-description">Data Penawaran Anda</p>
@@ -184,6 +184,7 @@
 export default {
   data() {
     return {
+      id_lelang : this.$route.params.id,
       history: {},
       lelang: {},
       penawaran: {},
@@ -200,7 +201,7 @@ export default {
     }
     this.axios
       .get(
-        `http://localhost/latihan_lelang/public/api/lelang/${this.$route.params.id}`,
+        `http://localhost/latihan_lelang/public/api/lelang/${this.id_lelang}`,
         {
           headers: { Authorization: "Bearer" + this.$store.state.token },
         }
@@ -211,11 +212,12 @@ export default {
           "http://localhost/latihan_lelang/public/foto/" + this.lelang.foto;
         console.log(this.src);
       }),
-      this.showPenawaranLelang();
+
+    this.showPenawaranLelang();
 
     this.axios
       .get(
-        `http://localhost/latihan_lelang/public/api/tambahpenawaran/${this.$route.params.id}`,
+        `http://localhost/latihan_lelang/public/api/tambahpenawaran/${this.id_lelang}`,
         {
           headers: { Authorization: "Bearer" + this.$store.state.token },
         }
@@ -223,12 +225,13 @@ export default {
       .then((res) => {
         this.penawaran = res.data;
       });
+      
   },
   methods: {
     showPenawaranLelang() {
       this.axios
         .get(
-          `http://localhost/latihan_lelang/public/api/showpenawaranlelang/${this.$route.params.id}`,
+          `http://localhost/latihan_lelang/public/api/showpenawaranlelang/${this.id_lelang}`,
           {
             headers: { Authorization: "Bearer" + this.$store.state.token },
           }

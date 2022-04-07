@@ -73,6 +73,8 @@ export default {
             } else {
               this.$router.push("/");
             }
+          }else {
+            this.$swal(res.data.message);
           }
         })
         .catch((err) => console.log(err));
